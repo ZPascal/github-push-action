@@ -43,12 +43,13 @@ const main = async () => {
     let branch = process.env.INPUT_BRANCH;
     const repository = trim(process.env.INPUT_REPOSITORY || process.env.GITHUB_REPOSITORY);
     const github_url = trim(process.env.INPUT_GITHUB_URL)
+    console.log(process.env.GITHUB_API_URL)
     if (!branch) {
         const headers = {
             'User-Agent': 'github.com/ad-m/github-push-action'
         };
         if (process.env.INPUT_GITHUB_TOKEN) headers.Authorization = `token ${process.env.INPUT_GITHUB_TOKEN}`;
-        const body = JSON.parse(await get(`${gitub.api_url}/repos/${repository}`, { headers }))
+        const body = JSON.parse(await get(`${process.env.GITHUB_API_URL}/repos/${repository}`, { headers }))
         branch = body.default_branch;
     }
     await exec('bash', [path.join(__dirname, './start.sh')], {
