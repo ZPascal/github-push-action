@@ -44,6 +44,8 @@ const main = async () => {
     const repository = trim(process.env.INPUT_REPOSITORY || process.env.GITHUB_REPOSITORY);
     const github_url = trim(process.env.INPUT_GITHUB_URL)
     console.log(process.env.GITHUB_API_URL)
+    console.log(repository)
+    console.log(github_url)
     if (!branch) {
         const headers = {
             'User-Agent': 'github.com/ad-m/github-push-action'
