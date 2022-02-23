@@ -47,7 +47,7 @@ const main = async () => {
             'User-Agent': 'github.com/ad-m/github-push-action'
         };
         if (process.env.INPUT_GITHUB_TOKEN) headers.Authorization = `token ${process.env.INPUT_GITHUB_TOKEN}`;
-        const body = JSON.parse(await get(`https://api.github.com/repos/${repository}`, { headers }))
+        const body = JSON.parse(await get(`${process.env.GITHUB_API_URL}/repos/${repository}`, { headers }))
         branch = body.default_branch;
     }
     await exec('bash', [path.join(__dirname, './start.sh')], {

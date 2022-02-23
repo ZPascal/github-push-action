@@ -23,4 +23,4 @@ fi
 
 cd ${INPUT_DIRECTORY}
 
-remote_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${REPOSITORY}.git"
+remote_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@${INPUT_GITHUB_URL}/${REPOSITORY}.git"
